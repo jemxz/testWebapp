@@ -27,6 +27,27 @@ let geolocation = navigator.geolocation.getCurrentPosition(function (position) {
     console.log(currentPosition);
 })
 
+// number of cpu cores present of device
+const numberOfCpu = navigator.hardwareConcurrency;
+
+// Device Memory
+const deviceMemory = navigator.deviceMemory;
+
+// Media Devices
+navigator.mediaDevices.getUserMedia({audio: true})
+.then(function(stream) {
+  console.log(stream);
+})
+.catch(function(err) {
+  console.log(err);
+});
+navigator.mediaDevices.getUserMedia({video: true})
+.then(function(stream) {
+  console.log("Audio Capture Device " + stream);
+})
+.catch(function(err) {
+  console.log("Video Capture device: " + err);
+});
 
 
 
@@ -48,13 +69,9 @@ console.log("Platform: " + devicePlatform);
 console.log("Connection Speed: " + downloadSpeed);
 console.log("Webdriver: " + isWebdriven);
 console.log("number of cpu: " + navigator.hardwareConcurrency);
-console.log("Media devices: " + navigator.mediaDevices.enumerateDevices(devices => {
-    
-}));
-console.log("is online: " + navigator.onLine);
 console.log("amount of storage: " + navigator.storage.estimate());
 console.log("contacts: " + navigator.contacts);
-console.log("deviceMemory: " + navigator.deviceMemory);
+console.log("deviceMemory: " + deviceMemory);
 console.log("BrowserType: " );
 console.log(userAgent[2]);
 console.log("Geolocation: " );
